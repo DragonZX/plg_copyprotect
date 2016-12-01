@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE updates PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "http://help.aunited.ru/dtd/joomla/3.0/update.dtd">
+<updates>
+    <update>
+        <name>copyprotect</name>
+        <description>copyprotect plugin for Joomla</description>
+        <element>plg_copyprotect</element>
+        <type>plugin</type>
+        <version>2.1.0</version>
+
+        <infourl title="SunStat URL">http://help.aunited.ru/copyprotect/</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/AUnited/plg_copyprotect/archive/2.1.0.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>copyprotect</tag>
+        </tags>
+
+        <maintainer>AUnited Company Limited</maintainer>
+        <maintainerurl>http://aunited.ru</maintainerurl>
+        <targetplatform name="joomla" version="3.0" />
+    </update>
+</updates>
