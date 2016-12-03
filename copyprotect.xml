@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE extension PUBLIC "-//Joomla! 3.0//DTD template 1.0//EN" "http://help.aunited.ru/dtd/joomla/3.0/plugin-install.dtd">
-<form method="post" id="CopyProtect_options">
-    <fieldset class="options">
-        <table class="form-table">
-            <tr valign="top">
-                <th width="33%" scope="row">Disable right mouse click:</th>
-                <td>
-                    <input type="radio" name="CopyProtect_nrc" value="0" <?php if($wp_CopyProtect_nrc == 0) echo('checked'); ?> />
-                    Do not disable right click.<br />
-                    <input type="radio" name="CopyProtect_nrc" value="1" <?php if($wp_CopyProtect_nrc == 1) echo('checked'); ?> />
-                    Disable right click, no message.<br />
-                    <input type="radio" name="CopyProtect_nrc" value="2" <?php if($wp_CopyProtect_nrc == 2) echo('checked'); ?> />
-                    Disable right click and show message :
-                    <input name="CopyProtect_nrc_text" type="text" id="CopyProtect_nrc_text" value="<?php echo get_option('CopyProtect_nrc_text') ;?>" size="30"/>
-                </td>
-            </tr>
-            <tr valign="top">
-                <th width="33%" scope="row">Disable text selection:</th>
-                <td>
-                    <input type="checkbox" id="CopyProtect_nts" name="CopyProtect_nts" value="CopyProtect_nts" <?php if($wp_CopyProtect_nts == true) { echo('checked="checked"'); } ?> />
-                    Activate. <a href="http://www.thechetan.com/wp-copyprotect/#kp" target="_blank">Not working ?</a>
-                </td>
-            </tr>
-            <tr>
-                <th width="33%" scope="row">Save settings :</th>
-                <td>
-                    <input type="submit" name="CopyProtect_save" value="Save Settings" />
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" style="text-align:right; vertical-align:top;">
-                <td>
-                    <h3>Whats next ?</h3>
-                    <p>Why don't you <a href="/wp-admin/post-new.php">write a post</a> about <a href="http://chetangole.com/blog/wp-copyprotect/" target="_blank">WP-CopyProtect</a> ?</p>
-                    <h3>Problems, Questions, Suggestions ?</h3>
-                    <p>Send me mail via: <a href="http://chetangole.com/blog/wp-copyprotect/" target="_blank">WP-CopyProtect Homepage</a></p>
-                </td>
-            </tr>
-        </table>
-        <h3>Thank you</h3>
-        Plug in developed by <a href="http://chetangole.com/blog/" target="_blank">Chetan Gole</a>. <br />
-        <small>Follow me on Twitter <a href="http://twitter.com/_techie" target="_blank">@_techie</a></small>
-    </fieldset>
-</form>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_COPYPROTECT</name>
+    <author>Vitaliy Zhukov</author>
+    <creationDate>December 2016</creationDate>
+    <authorEmail>info@aunited.ru</authorEmail>
+    <authorUrl>http://aunited.ru</authorUrl>
+    <version>2.0.1</version>
+    <copyright>Copyright (c) 2016 AUnuted Co. Ltd. All rights reserved.</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <description><![CDATA[PLG_COPYPROTECT_XML_DESCRIPTION]]></description>
+    <files>
+        <folder>language</folder>
+        <filename plugin="copyprotect">copyprotect.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_system_copyprotect.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_system_copyprotect.sys.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_system_copyprotect.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_system_copyprotect.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params" >
+            <fieldset name="Basic">
+                <field name="drc" type="radio" class="btn-group btn-group-yesno" default="enter" label="PLG_SYS_CP_DRC" description="PLG_SYS_CP_DRC_DESC">
+                    <option value="0">JNo</option>
+                    <option value="1">JYes</option>
+                    <option value="2">YES_SHOW_MESSAGE</option>
+                </field>
+                <field name="drct" type="text" default="RIGHT_CLICK_IS_DISABLED" label="PLG_SYS_CP_RIGHT_CLICK_IS_DISABLED_TEXT" description="PLG_SYS_SS_RIGHT_CLICK_IS_DISABLED_TEXT_DESC"> </field>
+                <field name="dts" type="radio" class="btn-group btn-group-yesno" default="0" label="PLG_SYS_CP_DTS" description="PLG_SYS_CP_DTS_DESC">
+                    <option value="0">JNo</option>
+                    <option value="1">JYes</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="copyprotect"><![CDATA[http://help.aunited.ru/copyprotect/update/copyprotect-update.xml]]></server>
+    </updateservers>
+</extension>
