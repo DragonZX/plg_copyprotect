@@ -44,7 +44,7 @@ return false;
 }
 
 if (document.layers){
-document.captureEvents(Event.MOUSEDOWN);
+document.addEventListener(onmousedown());
 document.onmousedown=clickNS4;
 }
 else if (document.all&&!document.getElementById){
@@ -79,8 +79,8 @@ return false;
 }
 
 if (document.layers){
-document.captureEvents(Event.MOUSEDOWN);
-document.onmousedown=clickNS4;
+	document.addEventListener(onmousedown());
+	document.onmousedown=clickNS4;
 }
 else if (document.all&&!document.getElementById){
 document.onmousedown=clickIE4;
